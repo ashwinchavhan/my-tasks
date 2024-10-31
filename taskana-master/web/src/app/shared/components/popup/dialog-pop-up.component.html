@@ -1,0 +1,7 @@
+<mat-dialog-content class="mat-typography">
+  <h4> {{message}} </h4>
+</mat-dialog-content>
+<mat-dialog-actions style="justify-content: flex-end">
+  <button mat-dialog-close mat-stroked-button> Cancel </button>
+  <button *ngIf="isDataSpecified" [mat-dialog-close]="callback" mat-raised-button color="primary"> Delete </button>
+</mat-dialog-actions>

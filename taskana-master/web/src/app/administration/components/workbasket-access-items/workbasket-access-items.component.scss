@@ -1,0 +1,144 @@
+@import '../../../../theme/colors';
+
+.workbasket-access-items {
+  height: calc(100vh - 213px);
+  overflow-y: auto;
+  overflow-x: auto;
+  display: inline-block;
+
+  &__typeahead {
+    text-align: left;
+    min-width: 124px;
+    max-width: 124px;
+    line-height: 20px;
+    padding-bottom: 0% !important;
+    margin-top: 5px;
+  }
+
+  &__table {
+    table-layout: auto;
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-right: auto;
+    width: 94%;
+    text-align: center;
+
+    .rotated-th {
+      height: 80px;
+      min-width: 40px;
+      vertical-align: bottom;
+      padding: 0;
+      line-height: 0.8;
+    }
+
+    .rotated-th > div {
+      min-width: 40px;
+      position: relative;
+      left: 40px;
+      height: 100%;
+      transform:skew(-45deg,0deg);
+      border-right: 1px solid #dee2e6;
+    }
+
+    .rotated-th span {
+      position: absolute;
+      line-height: 1;
+      width: 80px;
+      left: 50%;
+      bottom: 0;
+      text-align: left;
+      transform:skew(45deg,0deg) rotate(315deg);
+      transform-origin: left center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    & td {
+      min-width: 40px;
+      vertical-align: center;
+      border: 1px solid #dee2e6;
+    }
+
+    & tr:first-child > td {
+      border-top: 2px solid #dddddd;
+    }
+
+    & td > input[type='checkbox'] {
+      display: block;
+    }
+
+    & tr:nth-child(odd) > td {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    & input[type='checkbox']:checked {
+      filter: hue-rotate(320deg) brightness(1);
+    }
+  }
+
+  &__buttons-add-access {
+    color: white;
+    border: none;
+    background: $aquamarine;
+    margin: 10px 3px 0px 6px;
+    outline: none;
+  }
+
+  &__buttons-delete-access {
+    color: red;
+    margin: 2px 0px 0px 3px;
+    outline: none;
+  }
+
+  &__permission-checkbox,
+  &__check-all,
+  &__select-row {
+    display: inline-block;
+    height: 1rem;
+    line-height: 0;
+    margin: auto;
+    order: 0;
+    position: relative;
+    white-space: nowrap;
+    width: 1rem;
+    flex-shrink: 0;
+    cursor: pointer;
+
+    @supports (-moz-appearance: none) {
+      //bigger checkboxes for firefox because firefox renders differently
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+}
+
+.required-header {
+  vertical-align: bottom;
+  width: 200px;
+}
+
+.required-header:after {
+  content: ' *';
+  color: red;
+}
+
+::ng-deep .workbasket-access-items__form .mat-form-field-wrapper {
+  padding-bottom: 0em;
+  height: 58px;
+}
+
+::ng-deep .workbasket-access-items__typeahead .type-ahead__form-field .mat-form-field-infix {
+  padding: 0 0 0 0;
+  position: initial;
+  font-size: medium;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
+  margin-top: 0.7em;
+}
+
+table {
+  border-collapse: collapse;
+}

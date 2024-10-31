@@ -1,0 +1,120 @@
+<div class="task-list-toolbar">
+
+  <mat-tab-group animationDuration="0ms" [selectedIndex]="activeTab" (click)="onTabChange($event)">
+
+    <!-- WORKBASKETS -->
+    <mat-tab label="Workbaskets">
+
+      <div class="task-list-toolbar__tab">
+
+        <!-- BUTTON TO FURTHER FILTER OPTIONS -->
+        <button mat-stroked-button style="min-width: 1%" class="task-list-toolbar__button--secondary" matTooltip="Display more filter options" (click)="setFilterExpansion()">
+          <mat-icon *ngIf="!(isFilterExpanded$ | async)">keyboard_arrow_down</mat-icon>
+          <mat-icon *ngIf="(isFilterExpanded$ | async)">keyboard_arrow_up</mat-icon>
+        </button>
+
+        <div class="task-list-toolbar__spacer"> </div>
+
+        <!-- SEARCH FOR WORKBASKET -->
+        <div class="task-list-toolbar__filter-input">
+          <mat-form-field class="task-list-toolbar__filter--workbasket">
+            <mat-label>Select Workbasket</mat-label>
+            <input matInput
+                   type="text"
+                   placeholder="Workbasket"
+                   [(ngModel)]="resultName"
+                   (ngModelChange)="filterWorkbasketNames()"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="searchBasket()">
+              <mat-option *ngFor="let workbasketName of filteredWorkbasketNames" [value]="workbasketName">
+                {{workbasketName}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+
+
+        <div class="task-list-toolbar__spacer"> </div>
+
+        <!-- SEARCH BUTTON -->
+        <button class="task-list-toolbar__button--primary" style="top: 11px"
+                mat-stroked-button matTooltip="Filter Tasks" (click)="onFilter()">
+          <mat-icon>search</mat-icon>
+        </button>
+
+        <!-- CLEAR BUTTON -->
+        <button class="task-list-toolbar__button--secondary" style="top: 11px;"
+                mat-stroked-button matTooltip="Clear Filter" (click)="onClearFilter()">
+          <mat-icon>clear</mat-icon>
+        </button>
+
+      </div>
+    </mat-tab>
+
+
+    <!-- TASK SEARCH -->
+    <mat-tab label="Task search">
+
+      <div class="task-list-toolbar__tab">
+
+        <!-- BUTTON TO FURTHER FILTER OPTIONS -->
+        <button mat-stroked-button style="min-width: 1%" class="task-list-toolbar__button--secondary"
+                matTooltip="Display more filter options" (click)="setFilterExpansion()">
+          <mat-icon *ngIf="!(isFilterExpanded$ | async)">keyboard_arrow_down</mat-icon>
+          <mat-icon *ngIf="(isFilterExpanded$ | async)">keyboard_arrow_up</mat-icon>
+        </button>
+
+        <div class="task-list-toolbar__spacer"> </div>
+
+        <!-- FILTER TASKS -->
+        <div class="task-list-toolbar__filter-input">
+          <mat-form-field>
+            <mat-label>Filter Tasks</mat-label>
+            <input matInput type="text" placeholder="Filter" [(ngModel)]="filterInput" (keyup.enter)="onFilter(); this.searched = true;" (ngModelChange)="updateState()">
+          </mat-form-field>
+        </div>
+
+        <div class="task-list-toolbar__spacer"> </div>
+
+        <!-- SEARCH BUTTON -->
+        <button class="task-list-toolbar__button--primary" style="top: 11px"
+                mat-stroked-button matTooltip="Filter Tasks" (click)="onFilter(); this.searched = true">
+          <mat-icon>search</mat-icon>
+        </button>
+
+        <!-- CLEAR BUTTON -->
+        <button class="task-list-toolbar__button--secondary" style="top: 11px;"
+                mat-stroked-button matTooltip="Clear Filter" (click)="onClearFilter(); this.searched = true;">
+          <mat-icon>clear</mat-icon>
+        </button>
+
+      </div>
+
+    </mat-tab>
+  </mat-tab-group>
+
+  <!-- FURTHER FILTER OPTIONS -->
+  <div *ngIf="(isFilterExpanded$ | async)" class="task-list-toolbar__additional-filter">
+    <taskana-shared-task-filter> </taskana-shared-task-filter>
+  </div>
+
+
+  <!-- ADDITIONAL MENU WHEN TASK LIST IS DISPLAYED -->
+  <div *ngIf="searched" class="task-list-toolbar__additional-toolbar">
+
+    <!-- ADD TASK BUTTON -->
+    <button class="task-list-toolbar__button--primary" mat-flat-button matTooltip="Add Task" (click)="createTask()">
+      Add
+      <mat-icon class="md-20">add</mat-icon>
+    </button>
+
+
+    <!-- SORT TASKS BUTTON -->
+    <taskana-shared-sort
+      [sortingFields]="sortingFields" [defaultSortBy]="taskDefaultSortBy" (performSorting)="sorting($event)">
+    </taskana-shared-sort>
+
+  </div>
+
+</div>
+

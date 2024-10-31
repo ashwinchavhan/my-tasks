@@ -1,0 +1,76 @@
+# See https://github.com/github/gitignore for more about ignoring files.
+
+### MAVEN WRAPPER ###
+.mvn/wrapper/*jar
+
+### GENERATED ###
+target/
+routing/taskana-routing-rest/target\\routing.dmn
+.apt_generated/
+.checkstyle
+bin/
+*.orig
+
+### IDEs ###
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.vscode/*
+.idea
+*.iws
+*.iml
+*.ipr
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+
+
+### WEB ###
+# compiled output
+tmp/
+out-tsc/
+coverage/
+
+# dependencies
+node_modules/
+
+
+# misc
+
+web/.angular/cache/
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+testem.log
+/typings
+/web/package-lock.json
+
+# e2e
+/web/cypress/screenshots/
+/web/cypress/videos/
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# jenv on mac
+/.java-version
+
+# java-format
+.java-format-cache
+
+# DB2 database
+db.tar.gz

@@ -1,0 +1,15 @@
+@import 'src/theme/_colors.scss';
+
+.sort__selected-value {
+  color: $aquamarine;
+  font-weight: bold;
+}
+
+.sort__button {
+  outline: none;
+  color: #555;
+}
+
+.mat-menu-item {
+  outline: none;
+}

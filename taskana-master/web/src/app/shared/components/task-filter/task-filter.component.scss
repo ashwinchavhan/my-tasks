@@ -1,0 +1,33 @@
+@import 'src/theme/_colors.scss';
+
+.task-filter {
+  display: flex;
+  flex-direction: column;
+
+  &__button--primary {
+    background: $aquamarine;
+    color: white;
+
+    position: relative;
+    top: 30px;
+  }
+
+  &__button--secondary {
+    position: relative;
+    top: 24px;
+  }
+
+  .task-filter__row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__input-field--large {
+    width: 320px;
+  }
+
+  &__input-field--small {
+    flex-grow: 1;
+    min-width: 140px;
+  }
+}

@@ -1,0 +1,14 @@
+*.lint.ts
+**/node_modules/**
+.github/**
+.idea/**
+.cache/**
+.vscode/**
+dist*/**
+build/**
+coverage/**
+**/dist/**
+out-tsc/**
+**/*.html
+target/**
+.angular/cache/

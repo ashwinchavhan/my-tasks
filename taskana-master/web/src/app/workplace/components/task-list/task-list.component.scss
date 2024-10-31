@@ -1,0 +1,48 @@
+@import 'src/theme/_colors.scss';
+
+.task-list {
+  &__task {
+    display: flex;
+  }
+
+  &__task-info {
+    display: block;
+    width: 316px;
+  }
+
+  &__task-priority-badge {
+    top: 24px;
+    height: 24px;
+    width: 40px;
+  }
+}
+
+p {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+}
+
+.mat-list-item {
+  height: 90px !important;
+  overflow: hidden;
+}
+
+.mat-list-single-selected-option {
+  background-color: $green !important;
+  color: white;
+}
+
+.mat-badge-medium.mat-badge-above .mat-badge-content {
+  top: 1px;
+  right: 16px;
+  color: $green;
+  background-color: white;
+}
+
+.mat-badge-medium.mat-badge-below .mat-badge-content {
+  top: 1px;
+  right: 16px;
+  background-color: $green;
+}

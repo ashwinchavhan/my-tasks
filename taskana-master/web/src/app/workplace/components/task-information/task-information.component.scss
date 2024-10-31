@@ -1,0 +1,27 @@
+.task-information {
+  display: flex;
+  flex-direction: row;
+
+  &__column--left {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-right: 16px;
+  }
+
+  &__column--right {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  &__due-date-and-priority {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+::ng-deep .task-information .mat-form-field {
+  margin-top: 0.7rem;
+}

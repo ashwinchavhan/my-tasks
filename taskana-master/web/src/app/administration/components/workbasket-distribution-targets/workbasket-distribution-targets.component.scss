@@ -1,0 +1,27 @@
+@import 'src/theme/_colors.scss';
+
+.distribution-targets-list {
+  &__action-buttons {
+    display: flex;
+    flex-grow: 1;
+  }
+  &__action-button {
+    margin-right: 0.5rem;
+  }
+  &__button-icon {
+    color: #555;
+  }
+  &__lists {
+    padding: 0 16px 16px 16px;
+    background-color: $light-grey;
+    &--side {
+      display: flex;
+      taskana-administration-workbasket-distribution-targets-list {
+        width: 50%;
+      }
+    }
+    &--left-side {
+      margin-right: 1%;
+    }
+  }
+}

@@ -1,0 +1,117 @@
+@import '../../../../theme/colors';
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+::ng-deep .mat-header-cell {
+  color: black;
+  font-weight: bold;
+}
+
+td,
+th {
+  padding: 8px;
+  height: 70px;
+  text-align: center;
+}
+
+td {
+  border-top: 1px solid #dddddd;
+}
+
+tr:first-child > th {
+  border-bottom: 2px solid #dddddd;
+  height: 40px;
+}
+
+tr:nth-child(odd) > td {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+tr:first-child > td {
+  border-top: 2px solid $grey;
+}
+
+.access-items {
+  overflow-y: scroll;
+  height: calc(100vh - 104px);
+
+  &__group-table-cell {
+    height: 48px;
+    text-align: left;
+  }
+
+    &__permission-table-cell {
+      height: 48px;
+      text-align: left;
+    }
+
+  &__table {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  &__typeahead {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 20px;
+  }
+
+  &__icon {
+    text-align: center;
+    color: grey;
+  }
+
+  &__groups-expansion-panel {
+    width: 98%;
+    left: 1%;
+  }
+
+    &__permissions-expansion-panel {
+      width: 98%;
+      left: 1%;
+    }
+
+  &__authorization-expansion-panel {
+    width: 98%;
+    left: 1%;
+    margin-bottom: 5px;
+  }
+
+  &__authorization-expansion-panel-filter {
+    width: 130px;
+    margin-bottom: -31px;
+    margin-top: -10px;
+    margin-left: -35px;
+    text-align: left;
+    @media only screen and (max-width: 1600px) {
+      margin-left: -5px;
+    }
+  }
+
+  &__revoke-button {
+    float: right;
+    margin-right: 30px;
+    margin-bottom: 8px;
+  }
+}
+
+.mat-mini-fab {
+  outline-color: none;
+  border: none;
+  box-shadow: none !important;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.wrap {
+  max-width: 150px;
+  word-wrap: break-word;
+}

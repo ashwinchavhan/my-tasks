@@ -1,0 +1,66 @@
+<div class="workbasket-list">
+  <!-- TOOLBAR -->
+  <section #wbToolbar class="workbasket-list__toolbar">
+    <taskana-administration-workbasket-list-toolbar [workbaskets]="workbasketsSummary$ | async"
+      (performSorting)="performSorting($event)" [workbasketDefaultSortBy]="workbasketDefaultSortBy" [workbasketListExpanded]="expanded">
+    </taskana-administration-workbasket-list-toolbar>
+  </section>
+
+  <!-- WORKBASKET LIST -->
+  <div class="workbasket-list__list-items" *ngIf="((workbasketsSummary$ | async) && (workbasketsSummary$ | async)?.length > 0) else empty_workbaskets">
+    <mat-selection-list #workbasket [multiple]="false">
+      <mat-list-option class="workbasket-list__list-item"
+                       *ngFor="let workbasket of (workbasketsSummary$ | async);"
+                       (click)="selectWorkbasket(workbasket.workbasketId)"
+                       [selected]="workbasket.workbasketId == selectedId"
+                       [value]="workbasket.workbasketId">
+
+        <!-- WORKBASKET LIST ITEM -->
+        <div class="workbasket-list__list-item--wrapper">
+
+          <!-- ICON -->
+          <div class="workbasket-list__list-item--icon" *ngIf="expanded">
+            <taskana-administration-icon-type [type]="workbasket.type" size="large" tooltip="true" [selected]="workbasket.workbasketId === selectedId"></taskana-administration-icon-type>
+          </div>
+
+          <!-- INFORMATION -->
+          <div class="workbasket-list__list-item--info">
+
+            <div class="workbasket-list__list-item--wrap">
+              <b>{{workbasket.name}}</b>, <i>{{workbasket.key}}</i>
+            </div>
+            <p class="workbasket-list__list-item--no-wrap">{{workbasket.description}}</p>
+            <p class="workbasket-list__list-item--no-wrap">{{workbasket.owner}}</p>
+
+            <div class="workbasket-list__list-item--marked" *ngIf="workbasket.markedForDeletion">
+              <span title="Marked for deletion" data-toggle="tooltip" class="material-icons md-20 {{workbasket.workbasketId === selectedId ? 'white': 'red' }} ">error</span>
+            </div>
+
+          </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+
+
+  <!-- SPINNER and EMPTY WORKBASKET LIST -->
+  <ng-template #empty_workbaskets>
+    <div *ngIf="!requestInProgress && !requestInProgressLocal" class="workbasket-list__no-items">
+      <h3 class="grey">There are no workbaskets</h3>
+    </div>
+  </ng-template>
+</div>
+
+<!-- PAGINATION -->
+
+<taskana-shared-pagination
+        [page]="(workbasketsSummaryRepresentation$ | async) ? (workbasketsSummaryRepresentation$ | async)?.page : (workbasketsSummaryRepresentation$ | async)"
+        [type]="type"
+        [expanded]="expanded"
+        [numberOfItems]="(workbasketsSummary$ | async)?.length"
+        [resetPaging]="resetPagingSubject.asObservable()"
+        (changePage)="changePage($event)">
+</taskana-shared-pagination>

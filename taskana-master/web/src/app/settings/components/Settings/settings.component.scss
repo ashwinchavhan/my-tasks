@@ -1,0 +1,72 @@
+@import 'src/theme/_colors.scss';
+
+.settings {
+  padding: 8px 32px;
+  overflow-y: scroll;
+
+  &__content {
+    height: calc(100vh - 116px);
+    padding: 4px;
+  }
+
+  &__domain-name {
+    margin-bottom: 20px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+  }
+
+  &__button--primary {
+    background-color: $aquamarine;
+    color: white;
+    margin: 4px;
+  }
+
+  &__button--secondary {
+    background-color: #fff;
+    margin: 4px;
+  }
+
+  &__spacer {
+    height: 24px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-gap: 4px;
+    grid-template-columns: 300px 1fr 1fr;
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+  }
+
+  &__grid--center {
+    align-self: center;
+  }
+
+  &__grid--two-columns {
+    grid-column: 2 / 4;
+  }
+
+  &__color {
+    margin-bottom: 16px;
+  }
+
+  &__colors--input {
+    width: 100px;
+  }
+
+  &__icon {
+    color: $aquamarine;
+  }
+}
+
+::ng-deep .ng-invalid.ng-touched:not(form) {
+  box-shadow: unset;
+}

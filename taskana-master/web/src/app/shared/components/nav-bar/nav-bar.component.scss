@@ -1,0 +1,37 @@
+@import '../../../../theme/variables';
+
+.navbar {
+  background-color: $dark-green;
+  max-height: 52px;
+  overflow-x: hidden;
+  padding-right: 50px;
+}
+
+.navbar__logo {
+  margin: auto;
+}
+
+svg-icon.navbar__logo-icon {
+  float: left;
+  width: 150px;
+  height: 50px;
+  padding: 4px 10px 0 0;
+  position: initial;
+}
+
+.navbar__title {
+  padding-top: 9px;
+  color: white;
+  font-size: 1.25rem;
+  @media only screen and (max-width: 700px) {
+    display: none;
+  }
+}
+
+.mat-icon-button {
+  outline: none;
+}
+
+.mat-icon {
+  color: white;
+}
